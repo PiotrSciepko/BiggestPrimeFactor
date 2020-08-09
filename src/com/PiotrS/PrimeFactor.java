@@ -26,34 +26,16 @@ public class PrimeFactor {
         return primeFactors;
     }
 
-    public List<Integer> getMaxPrimeFactors(List<Integer> list) {
-        List<Integer> maxPrimesFirst = new ArrayList<>();
-        int n = initialNumber;
-        int i = list.size() - 1;
-        int div;
-        while (n > 1) {
-            div = list.get(i);
-            while (n % div == 0) {
-                maxPrimesFirst.add(div);
-                n /= div;
-            }
-            i--;
-        }
-        return maxPrimesFirst;
-    }
-
     public boolean isPrime() {
         return getPrimeFactors().size() == 1;
     }
 
     public static void main(String[] args) {
 
-        PrimeFactor p = new PrimeFactor(256);
+        PrimeFactor p = new PrimeFactor(Integer.MAX_VALUE-1);
 
         List<Integer> primeFactors = p.getPrimeFactors();
         System.out.println(primeFactors);
-
-        System.out.println(p.getMaxPrimeFactors(primeFactors));
 
         Collections.reverse(primeFactors);
         System.out.println(primeFactors);
