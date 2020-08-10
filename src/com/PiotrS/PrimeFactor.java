@@ -20,7 +20,6 @@ public class PrimeFactor {
                 primeFactors.add(div);
                 n /= div;
             }
-            //div++;
             div += (div == 2) ? 1 : 2;
         }
         return primeFactors;
@@ -32,7 +31,7 @@ public class PrimeFactor {
 
     public static void main(String[] args) {
 
-        PrimeFactor p = new PrimeFactor(Integer.MAX_VALUE-1);
+        PrimeFactor p = new PrimeFactor(455);
 
         List<Integer> primeFactors = p.getPrimeFactors();
         System.out.println(primeFactors);
