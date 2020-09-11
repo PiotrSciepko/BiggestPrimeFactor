@@ -1,7 +1,6 @@
 package com.PiotrS;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class PrimeFactor {
@@ -31,15 +30,19 @@ public class PrimeFactor {
 
     public static void main(String[] args) {
 
-        PrimeFactor p = new PrimeFactor(455);
+	    int arg;
+	    try {
+	        arg = Integer.parseInt(args[0]);
+        }
+	    catch (Exception e){
+            arg = 0;
+        }
 
+        PrimeFactor p = new PrimeFactor(arg);
         List<Integer> primeFactors = p.getPrimeFactors();
-        System.out.println(primeFactors);
-
-        Collections.reverse(primeFactors);
-        System.out.println(primeFactors);
-
-        System.out.println(p.isPrime());
+        System.out.println("\n{" + arg + "} -> " +primeFactors);
+        System.out.println("isPrime: " + p.isPrime());
+        System.out.println();
 
     }
 }
