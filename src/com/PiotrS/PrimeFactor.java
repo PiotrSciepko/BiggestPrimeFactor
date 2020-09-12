@@ -14,7 +14,7 @@ public class PrimeFactor {
         List<Long> primeFactors = new ArrayList<>();
         long div = 2;
         long n = initialNumber;
-        while (n > 1) {
+        while (Math.abs(n) > 1) {
             while (n % div == 0) {
                 primeFactors.add(div);
                 n /= div;
@@ -34,12 +34,12 @@ public class PrimeFactor {
 	    try {
 	        arg = Long.parseLong(args[0]);
         } catch (Exception e){
-            arg = 0;
+	        arg = 0;
         }
 
         PrimeFactor p = new PrimeFactor(arg);
         List<Long> primeFactors = p.getPrimeFactors();
-        System.out.println("\n" + arg + " -> " +primeFactors);
+        System.out.println("\n" + arg + " -> " + primeFactors);
         System.out.println("isPrime: " + p.isPrime());
         System.out.println();
 
