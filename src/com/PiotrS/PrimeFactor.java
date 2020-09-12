@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PrimeFactor {
-    final int initialNumber;
+    final long initialNumber;
 
-    public PrimeFactor(int initialNumber) {
+    public PrimeFactor(long initialNumber) {
         this.initialNumber = initialNumber;
     }
 
-    public List<Integer> getPrimeFactors() {
-        List<Integer> primeFactors = new ArrayList<>();
-        int div = 2;
-        int n = initialNumber;
+    public List<Long> getPrimeFactors() {
+        List<Long> primeFactors = new ArrayList<>();
+        long div = 2;
+        long n = initialNumber;
         while (n > 1) {
             while (n % div == 0) {
                 primeFactors.add(div);
@@ -30,17 +30,16 @@ public class PrimeFactor {
 
     public static void main(String[] args) {
 
-	    int arg;
+	    long arg;
 	    try {
-	        arg = Integer.parseInt(args[0]);
-        }
-	    catch (Exception e){
+	        arg = Long.parseLong(args[0]);
+        } catch (Exception e){
             arg = 0;
         }
 
         PrimeFactor p = new PrimeFactor(arg);
-        List<Integer> primeFactors = p.getPrimeFactors();
-        System.out.println("\n{" + arg + "} -> " +primeFactors);
+        List<Long> primeFactors = p.getPrimeFactors();
+        System.out.println("\n" + arg + " -> " +primeFactors);
         System.out.println("isPrime: " + p.isPrime());
         System.out.println();
 
