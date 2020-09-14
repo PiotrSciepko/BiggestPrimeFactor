@@ -40,7 +40,7 @@ public class PrimeFactor {
         PrimeFactor p = new PrimeFactor(arg);
         List<Long> primeFactors = p.getPrimeFactors();
         System.out.println("\n" + arg + " -> " + primeFactors);
-        System.out.println("isPrime: " + p.isPrime());
+        //System.out.println("isPrime: " + p.isPrime());
         System.out.println();
 
     }
