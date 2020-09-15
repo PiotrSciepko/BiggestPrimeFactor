@@ -30,11 +30,11 @@ public class PrimeFactor {
 
     public static void main(String[] args) {
 
-	    long arg;
-	    try {
-	        arg = Long.parseLong(args[0]);
-        } catch (Exception e){
-	        arg = 0;
+        long arg;
+        try {
+            arg = Long.parseLong(args[0]);
+        } catch (Exception e) {
+            arg = 0;
         }
 
         PrimeFactor p = new PrimeFactor(arg);
