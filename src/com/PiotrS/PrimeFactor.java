@@ -1,25 +1,30 @@
 package com.PiotrS;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PrimeFactor {
-    final long initialNumber;
+    final BigInteger initialNumber;
 
-    public PrimeFactor(long initialNumber) {
+    public PrimeFactor(BigInteger initialNumber) {
         this.initialNumber = initialNumber;
     }
 
-    public List<Long> getPrimeFactors() {
-        List<Long> primeFactors = new ArrayList<>();
-        long div = 2;
-        long n = initialNumber;
-        while (Math.abs(n) > 1) {
-            while (n % div == 0) {
+    public List<BigInteger> getPrimeFactors() {
+        List<BigInteger> primeFactors = new ArrayList<>();
+        BigInteger div = BigInteger.TWO;
+        BigInteger n = initialNumber;
+        while (n.abs().compareTo(BigInteger.ONE) == 1) {
+            while (n.remainder(div).equals(BigInteger.ZERO)) {
                 primeFactors.add(div);
-                n /= div;
+                n = n.divide(div);
             }
-            div += (div == 2) ? 1 : 2;
+            if (div.equals(BigInteger.TWO)) {
+                div = div.add(BigInteger.ONE);
+            } else {
+                div = div.add(BigInteger.TWO);
+            }
         }
         return primeFactors;
     }
@@ -30,15 +35,15 @@ public class PrimeFactor {
 
     public static void main(String[] args) {
 
-        long arg;
+        BigInteger arg;
         try {
-            arg = Long.parseLong(args[0]);
+            arg = new BigInteger(args[0]);
         } catch (Exception e) {
-            arg = 0;
+            arg = BigInteger.ZERO;
         }
 
         PrimeFactor p = new PrimeFactor(arg);
-        List<Long> primeFactors = p.getPrimeFactors();
+        List<BigInteger> primeFactors = p.getPrimeFactors();
         System.out.println("\n" + arg + " -> " + primeFactors);
         //System.out.println("isPrime: " + p.isPrime());
         System.out.println();
