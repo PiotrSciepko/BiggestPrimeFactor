@@ -13,14 +13,20 @@ public class PrimeFactor {
 
     public List<BigInteger> getPrimeFactors() {
         List<BigInteger> primeFactors = new ArrayList<>();
-        BigInteger div = BigInteger.TWO;
         BigInteger n = initialNumber.abs();
+
+        BigInteger div = BigInteger.TWO;
+        while (n.remainder(div).equals(BigInteger.ZERO)) {
+            primeFactors.add(div);
+            n = n.divide(div);
+        }
+        div = BigInteger.valueOf(3);
         while (n.compareTo(div.pow(2)) == 1 || n.compareTo(div.pow(2)) == 0) {
             if (n.remainder(div).equals(BigInteger.ZERO)) {
                 primeFactors.add(div);
                 n = n.divide(div);
             } else {
-                div = (div.add(BigInteger.ONE));
+                div = (div.add(BigInteger.TWO));
             }
         }
         primeFactors.add(n);
