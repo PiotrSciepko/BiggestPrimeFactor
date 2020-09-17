@@ -29,7 +29,9 @@ public class PrimeFactor {
                 div = (div.add(BigInteger.TWO));
             }
         }
-        primeFactors.add(n);
+        if (n.compareTo(BigInteger.TWO) == 1) {
+            primeFactors.add(n);
+        }
         return primeFactors;
     }
 
