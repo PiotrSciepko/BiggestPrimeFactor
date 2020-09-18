@@ -21,7 +21,7 @@ public class PrimeFactor {
             n = n.divide(div);
         }
         div = BigInteger.valueOf(3);
-        while (n.compareTo(div.pow(2)) == 1 || n.compareTo(div.pow(2)) == 0) {
+        while (n.compareTo(div.pow(2)) > -1) {
             if (n.remainder(div).equals(BigInteger.ZERO)) {
                 primeFactors.add(div);
                 n = n.divide(div);
